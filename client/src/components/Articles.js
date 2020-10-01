@@ -15,7 +15,7 @@ const Articles = () => {
 
     const getArticles = () => {
         axios.get('/articles')
-       .then(res => setArticles(res.data))
+       .then(res => setArticles(res.data.reverse()))
        .catch(err => console.log(err))
     }
     
@@ -42,7 +42,7 @@ const Articles = () => {
                             <span className="badge badge-secondary p-2">{article.authorname}</span>
                             <div className="row mt-5">
                                 <div className="col-sm-2">
-                                    <a href="" className="btn btn-outline-success">Edit Article</a>
+                                    <Link to={`/update/${article._id}`} className="btn btn-outline-success">Edit Article</Link>
                                 </div>
                                 <div className="col-sm-2">
                                     <a href="" onClick={(e) => handleDelete(e,article._id)} className="btn btn-outline-danger">Delete Article</a>

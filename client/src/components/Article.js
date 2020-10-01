@@ -10,8 +10,6 @@ const Article = (props) => {
         axios.get(`/articles/${props.match.params.id}`)
         .then(res => setArticle(res.data))
         .catch(err => console.log(err))
-
-        
     },[])
     return (
         <ArticleContainer>
