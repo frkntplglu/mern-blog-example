@@ -10,10 +10,13 @@ const Articles = () => {
        axios.get('/articles')
        .then(res => setArticles(res.data))
        .catch(err => console.log(err)) 
-    },[])
+    },[articles])
 
-    const handleDelete = (e) => {
-        e.preventDefault()
+    const handleDelete = (e,id) => {
+        e.preventDefault();
+        axios.delete(`/articles/delete/${id}`)
+       .then(res => console.log(res.data))
+       .catch(err => console.log(err)) 
     }
 
     return (
@@ -32,7 +35,7 @@ const Articles = () => {
                                     <a href="" className="btn btn-outline-success">Edit Article</a>
                                 </div>
                                 <div className="col-sm-2">
-                                    <a href="" onClick={(handleDelete(e,article._id))} className="btn btn-outline-danger">Delete Article</a>
+                                    <a href="" onClick={(e) => handleDelete(e,article._id)} className="btn btn-outline-danger">Delete Article</a>
                                 </div>
                             </div>
                         </li>
