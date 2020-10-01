@@ -5,6 +5,7 @@ import Header from './components/layout/Header'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Articles from './components/Articles'
+import AddArticle from './components/AddArticle'
 import {Route} from 'react-router-dom'
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
-      <Route path="/" component={Articles} />
+      <Route path="/" exact component={Articles} />
+      <Route path="/add-articles" component={AddArticle} />
       <Footer />
     </div>
   );
